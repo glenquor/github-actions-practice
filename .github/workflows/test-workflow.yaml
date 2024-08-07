@@ -9,5 +9,5 @@ jobs:
         env:
           NAME: Luffy
         run: |
-          echo "Hello $NAME"
-          echo "$NAME eats chicken"
+          echo "Hello ${{ env.NAME }}"
+          echo "${{ env.NAME }} eats chicken"
