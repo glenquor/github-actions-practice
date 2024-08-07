@@ -1,0 +1,13 @@
+name: actions-practice
+on: push
+jobs:
+  testing-env-vars:
+    name: Testing Environment Variables
+    runs-on: ubuntu-latest
+    steps:
+      - name: Environment variables
+        env:
+          NAME: Luffy
+        run: |
+          echo "Hello $NAME"
+          echo "$NAME eats chicken"
