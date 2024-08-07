@@ -11,3 +11,29 @@ jobs:
         run: |
           echo "Hello ${{ env.NAME }}"
           echo "${{ env.NAME }} eats chicken"
+  file-creation:
+    name: File creation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Creation
+        run: |
+          echo "Hello from file-creation job" > greeting.txt
+      - name: Upload file
+        uses: actions/upload-artifact@v3
+        with:
+          name: text-file
+          path: ./greeting.txt
+  read-file:
+    name: Read
+    needs: file-creation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file
+        uses: actions/download-artifact@v3
+        with:
+          name: text-file
+      - name: Read file
+        run: cat greeting.txt
+
+  
+
