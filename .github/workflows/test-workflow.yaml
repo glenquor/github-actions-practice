@@ -6,11 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Environment variables
-        env:
+        env: 
           NAME: Luffy
         run: |
-          echo "Hello ${{ env.NAME }}"
-          echo "${{ env.NAME }} eats chicken"
+          echo "Hello ${{ vars.TEST_ENV_VAR }}"
+          echo "This is a mock secret: ${{ secrets.TEST_PASSWORD }}"
   file-creation:
     name: File creation
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "Hello from file-creation job" > greeting.txt
       - name: Upload file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: text-file
           path: ./greeting.txt
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download file
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: text-file
       - name: Read file
