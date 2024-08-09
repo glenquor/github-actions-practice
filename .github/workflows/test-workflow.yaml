@@ -9,7 +9,7 @@ jobs:
         env: 
           NAME: Luffy
         run: |
-          echo "Hello ${{ vars.TEST_ENV_VAR }}"
+          echo "Hello ${{ vars }}"
           echo "This is a mock secret: ${{ secrets.TEST_PASSWORD }}"
   file-creation:
     name: File creation
