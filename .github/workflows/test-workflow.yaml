@@ -24,7 +24,7 @@ jobs:
           name: text-file
           path: ./greeting.txt
   read-file:
-    if: github.ref == 'refs/heads/dev'
+    if: github.ref == 'refs/heads/main'
     name: Read
     needs: file-creation
     runs-on: ubuntu-latest
